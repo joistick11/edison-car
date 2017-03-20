@@ -43,10 +43,14 @@ def calculate_distance(pulse_count):
     while pulse_count != 0:
         distances = np.append(distances, send_pulse())
         pulse_count = pulse_count - 1;
-    print(np.mean(reject_outliers(distances)))
     return np.mean(reject_outliers(distances))
 
 
 def has_obstacle():
-    return calculate_distance(10) < 35.0
+    return calculate_distance(10) > 35.0
 
+
+if __name__ == '__main__':
+    while True:
+        print calculate_distance(10)
+        #time.sleep(.2)

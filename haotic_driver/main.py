@@ -26,14 +26,14 @@ def make_decision():
 if __name__ == '__main__':
     try:
         while True:
-	    time.sleep(.2)
+	    #time.sleep(.2)
             if not has_obstacle():
-                run_forward(1)
+                run_forward(.1)
                 print("forward")
             else:
                 print("obstacle")
                 full_stop()
-                run_backward(1)
+                #run_backward(1)
                 make_decision()
     except KeyboardInterrupt:
         full_stop()
