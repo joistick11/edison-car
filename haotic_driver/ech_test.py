@@ -3,6 +3,7 @@ import random
 from echo_sensor import has_obstacle
 from motors_controller import *
 import pyupm_buzzer as upmBuzzer
+import time
 
 buzzer = upmBuzzer.Buzzer(9)
 buzzer.stopSound()
@@ -26,17 +27,16 @@ def make_decision():
 if __name__ == '__main__':
     try:
         while True:
-	    time.sleep(.2)
-            if not has_obstacle():
-                run_forward(1)
+            time.sleep(.2)
+            while not has_obstacle():
+                run_forward(.2)
                 print("forward")
-            else:
-                print("obstacle")
-                full_stop()
-                run_backward(1)
-                make_decision()
+
+            print("obstacle")
+            full_stop()
+            run_backward(1)
+            make_decision()
     except KeyboardInterrupt:
         full_stop()
         exit(1)
-
 

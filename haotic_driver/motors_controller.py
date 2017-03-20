@@ -69,10 +69,10 @@ def left_wheel_stop():
 def turn_right():
     left_forward()
     right_backward()
-    time.sleep(0.6)
+    time.sleep(0.4)
 
 
 def turn_left():
     right_forward()
     left_backward()
-    time.sleep(0.6)
+    time.sleep(0.4)
