@@ -1,6 +1,4 @@
 import operator
-from pprint import pprint
-
 from PIL import Image
 
 
@@ -80,10 +78,8 @@ def calculate_relative_with_new_abs(current_abs, candidate_abs):
         elif candidate_abs == 'd':
             return 'left'
 
-if __name__ == '__main__':
-    # image = misc.imread(os.path.join('map_diff.bmp'), flatten=0)
-    image = Image.open("map_diff.bmp").convert('RGB')
 
-    absolute_action_chain = get_absolute_action_chain(find_start_point(image), image)
-    # pprint(absolute_action_chain)
-    pprint(convert_absolute_to_relative_action_chain(absolute_action_chain))
+def parse_map(map_file):
+    image = Image.open(map_file).convert('RGB')
+    return convert_absolute_to_relative_action_chain(get_absolute_action_chain(find_start_point(image), image))
+
