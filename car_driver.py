@@ -1,6 +1,6 @@
-import main_map as bmp_parse
+import map_parser as bmp_parse
 import motors_controller as control
-
+import file_parser
 
 def move(car_path):
     for action in car_path:
@@ -20,9 +20,10 @@ def move(car_path):
     control.full_stop()
 
 if __name__ == '__main__':
-    map_file = "img/perekrestok.bmp"
-    PATH = bmp_parse.parse_map(map_file)
-
+    #map_file = "img/perekrestok.bmp"
+    #PATH = bmp_parse.parse_map(map_file)
+    map_file = "path/square_and_back_to_start"
+    PATH = file_parser.parse_actions_from_file(map_file)
     try:
         move(PATH)
     except KeyboardInterrupt:

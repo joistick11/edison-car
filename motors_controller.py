@@ -6,6 +6,8 @@ PIN_LEFT_M = 5
 PIN_RIGHT_P = 6
 PIN_RIGHT_M = 7
 
+TURN_DURATION = 0.3
+
 wh1p = mraa.Gpio(PIN_LEFT_P)
 wh1m = mraa.Gpio(PIN_LEFT_M)
 wh2p = mraa.Gpio(PIN_RIGHT_P)
@@ -69,10 +71,10 @@ def left_wheel_stop():
 def turn_right():
     left_forward()
     right_backward()
-    time.sleep(0.6)
+    time.sleep(TURN_DURATION)
 
 
 def turn_left():
     right_forward()
     left_backward()
-    time.sleep(0.6)
+    time.sleep(TURN_DURATION)
