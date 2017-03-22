@@ -6,6 +6,8 @@ if __name__ == '__main__':
         while True:
             if not has_obstacle():
                 run_forward(1)
+            else:
+                full_stop()
     except KeyboardInterrupt:
         full_stop()
         exit(1)

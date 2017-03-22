@@ -13,13 +13,16 @@ echo.dir(mraa.DIR_IN)
 
 
 def pulse_in():
-    pulse_on = 0
-    pulse_off = 0
-    while echo.read() == 0:
-        pulse_on = dt.now()
-    while echo.read() == 1:
-        pulse_off = dt.now()
-    return pulse_off - pulse_on
+    try:
+        pulse_on = 0
+        pulse_off = 0
+        while echo.read() == 0:
+            pulse_on = dt.now()
+        while echo.read() == 1:
+            pulse_off = dt.now()
+        return pulse_off - pulse_on
+    except:
+        return 42
 
 
 def has_obstacle():
