@@ -12,18 +12,18 @@ trig.dir(mraa.DIR_OUT)
 echo.dir(mraa.DIR_IN)
 
 
-def pulseIn():
-    pulseOn = 0
-    pulseOff = 0
+def pulse_in():
+    pulse_on = 0
+    pulse_off = 0
     while echo.read() == 0:
-        pulseOn = dt.now()
+        pulse_on = dt.now()
     while echo.read() == 1:
-        pulseOff = dt.now()
-    return pulseOff - pulseOn
+        pulse_off = dt.now()
+    return pulse_off - pulse_on
 
 
 def has_obstacle():
     trig.write(1)
     time.sleep(1)
     trig.write(0)
-    return (17000 * pulseIn().microseconds * 0.000001) < 20.0
+    return (17000 * pulse_in().microseconds * 0.000001) < 20.0
