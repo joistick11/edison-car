@@ -1,6 +1,5 @@
 import main_map as bmp_parse
 import motors_controller as control
-import time
 
 
 def move(car_path):
