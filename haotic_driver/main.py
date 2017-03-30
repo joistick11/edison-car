@@ -31,6 +31,7 @@ if __name__ == '__main__':
                 run_forward(.1)
                 print("forward")
             else:
+                make_bip()
                 print("obstacle")
                 full_stop()
                 #run_backward(1)
