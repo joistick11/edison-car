@@ -35,18 +35,17 @@ def send_pulse():
     trig.write(1)
     time.sleep(0.00002)
     trig.write(0)
-    return (17 * pulse_in(200) * 0.001)
+    return 17 * pulse_in(200) * 0.001
 
 
 def calculate_distance(pulse_count):
     distances = np.array([])
     while pulse_count != 0:
         distances = np.append(distances, send_pulse())
-        pulse_count = pulse_count - 1;
+        pulse_count = pulse_count - 1
     print(np.mean(reject_outliers(distances)))
     return np.mean(reject_outliers(distances))
 
 
 def has_obstacle():
     return calculate_distance(10) < 35.0
-
